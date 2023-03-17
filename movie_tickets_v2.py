@@ -5,7 +5,7 @@ Created bo Hye yoon chung
 
 
 # Component 1 - Welcome screen and set up variables
-def sell_tick()
+def sell_tick():
     print("********** Fanfare Movies - ticketing system **********\n")
 
     adult_tickets = 0
