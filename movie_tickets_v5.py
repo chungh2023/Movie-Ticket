@@ -1,7 +1,20 @@
-"""Movie theatre ticketing system - v3
-Calculate ticket price
+"""Movie theatre ticketing system - v5
+Update totals
 Created bo Hye yoon chung
 """
+
+# Component 4 - Confirm order
+def confirm_order(ticket, number, cost):
+    confirm = ""
+    while confirm != "Y" and confirm != "N":
+        confirm = input(f"\nYou have ordered {number} {ticket} ticket(s)"
+                        f"at a cost of ${cost * number:.2f}\n"
+                        f"('Y' or 'N' : ")
+        if confirm == "Y":
+            return True
+
+        else:
+            return False
 
 
 # Component 3 - Calculate ticket price
@@ -36,11 +49,31 @@ def sell_ticket():
                                 f""))
         cost = get_price(ticket_type)
 
-        print(f"\nYou have ordered {num_tickets} {ticket_type} ticket(s)"
-              f"at a cost of ${cost * num_tickets:.2f}!")
+        if confirm_order(ticket_type, num_tickets, cost) ==
+            print("Order confirmed")
+
+            # Component 5 - update totals
+            total_sales += cost
+            tickets_sold += num_tickets
+            if ticket_type == "A":
+                adult_tickets += num_tickets
+            elif ticket_type == "S":
+                student_ticket += num_tickets
+            elif ticket_type == "C":
+                child_tickets += num_tickets
+            else:
+                gift_tickets += num_tickets
+        else:
+            print("Order cancelled")
+
 
         ticket_wanted = input("Do you want to sell another ticket? (Y/N): "
                               "").upper()
+
+
+
+
+
 
 
 
